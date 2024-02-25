@@ -1,13 +1,12 @@
-import Header from "./Components/Header"
-import ShowCase from "./Components/ShowCase"
-import About from "./Pages/About"
+import {Routes, Route } from "react-router-dom"
+import Website from "./Pages/Website/Webiste"
+import DonateBlood from "./Pages/Website/DonateBlood"
 
 function App() {
-  return <div>
-    <Header />
-    <ShowCase />
-    <About />
-  </div>
+  return <Routes>
+    <Route path="/" element={<Website />} />
+    <Route path="/donateblood" element={<DonateBlood />} />
+  </Routes>
 }
 
 export default App

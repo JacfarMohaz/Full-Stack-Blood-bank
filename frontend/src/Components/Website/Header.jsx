@@ -20,7 +20,7 @@ function Header() {
 
         <div style={{ border: isOpen === true ? "none" : "" }} className="sm:px-5 flex justify-between sm:items-center border-b-2 border-fourthColor shadow-sm max-w-[1640px] mx-auto">
             <div>
-                <img className="sm:w-24 w-28" src={somLogoPNG} />
+                <Link to="/"><img className="sm:w-24 w-28" src={somLogoPNG} /></Link>
             </div>
             <i onClick={HandleIsOpen} style={{ display: isOpen === true ? "none" : "" }} class="fa-solid text-6xl text-seconderyColor flex sm:hidden absolute top-7 right-5 fa-bars"></i>
             <i onClick={HandleIsClose} style={{ display: isOpen === true ? "block" : "" }} class="fa-solid text-6xl text-seconderyColor hidden absolute top-7 right-6 fa-xmark"></i>

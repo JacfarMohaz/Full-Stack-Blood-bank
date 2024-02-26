@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import SideNav from "./SideNav"
 import SystemHeader from "./SystemHeader"
 
@@ -7,52 +8,52 @@ function BloodType() {
         <SystemHeader />
 
         <div className="grid grid-cols-4 ml-[23%]">
-            <div className="bg-primeryColor w-28 h-28 mt-10 rounded-2xl shadow-2xl text-textColor">
+            <Link to="/aplas" className="bg-primeryColor w-28 h-28 mt-10 rounded-2xl shadow-2xl text-textColor">
                 <i class="fa-solid text-3xl pt-5 pl-10 fa-droplet"></i>
                 <h1 className="text-4xl font-semibold pl-8">A+</h1>
-            </div>
+            </Link>
 
             {/* two */}
-            <div className="bg-primeryColor w-28 h-28 mt-10 rounded-2xl shadow-2xl text-textColor">
+            <Link to="/aminus" className="bg-primeryColor w-28 h-28 mt-10 rounded-2xl shadow-2xl text-textColor">
                 <i class="fa-solid text-3xl pt-5 pl-10 fa-droplet"></i>
                 <h1 className="text-4xl font-semibold pl-8">A-</h1>
-            </div>
+            </Link>
 
             {/* three */}
-            <div className="bg-primeryColor w-28 h-28 mt-10 rounded-2xl shadow-2xl text-textColor">
+            <Link to="/bplas" className="bg-primeryColor w-28 h-28 mt-10 rounded-2xl shadow-2xl text-textColor">
                 <i class="fa-solid text-3xl pt-5 pl-10 fa-droplet"></i>
                 <h1 className="text-4xl font-semibold pl-8">B+</h1>
-            </div>
+            </Link>
 
             {/* four */}
-            <div className="bg-primeryColor w-28 h-28 mt-10 rounded-2xl shadow-2xl text-textColor">
+            <Link to="/bminus" className="bg-primeryColor w-28 h-28 mt-10 rounded-2xl shadow-2xl text-textColor">
                 <i class="fa-solid text-3xl pt-5 pl-10 fa-droplet"></i>
                 <h1 className="text-4xl font-semibold pl-8">B-</h1>
-            </div>
+            </Link>
 
             {/* five */}
-            <div className="bg-primeryColor w-28 h-28 mt-20 rounded-2xl shadow-2xl text-textColor">
+            <Link to="/abplas" className="bg-primeryColor w-28 h-28 mt-20 rounded-2xl shadow-2xl text-textColor">
                 <i class="fa-solid text-3xl pt-5 pl-10 fa-droplet"></i>
                 <h1 className="text-4xl font-semibold pl-8">AB+</h1>
-            </div>
+            </Link>
 
             {/* six */}
-            <div className="bg-primeryColor w-28 h-28 mt-20 rounded-2xl shadow-2xl text-textColor">
+            <Link to="/abminus" className="bg-primeryColor w-28 h-28 mt-20 rounded-2xl shadow-2xl text-textColor">
                 <i class="fa-solid text-3xl pt-5 pl-10 fa-droplet"></i>
                 <h1 className="text-4xl font-semibold pl-8">AB-</h1>
-            </div>
+            </Link>
 
             {/* seven */}
-            <div className="bg-primeryColor w-28 h-28 mt-20 rounded-2xl shadow-2xl text-textColor">
+            <Link to="/oplas" className="bg-primeryColor w-28 h-28 mt-20 rounded-2xl shadow-2xl text-textColor">
                 <i class="fa-solid text-3xl pt-5 pl-10 fa-droplet"></i>
                 <h1 className="text-4xl font-semibold pl-8">O+</h1>
-            </div>
+            </Link>
 
             {/* eight */}
-            <div className="bg-primeryColor w-28 h-28 mt-20 rounded-2xl shadow-2xl text-textColor">
+            <Link to="/ominus" className="bg-primeryColor w-28 h-28 mt-20 rounded-2xl shadow-2xl text-textColor">
                 <i class="fa-solid text-3xl pt-5 pl-10 fa-droplet"></i>
                 <h1 className="text-4xl font-semibold pl-8">O-</h1>
-            </div>
+            </Link>
 
         </div>
 

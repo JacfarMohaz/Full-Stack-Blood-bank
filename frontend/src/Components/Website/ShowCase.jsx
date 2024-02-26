@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import showCaseImage from "../../assets/showcaseImage.png"
 import { TypeAnimation } from 'react-type-animation';
 
@@ -21,7 +22,9 @@ function ShowCase() {
                     style={{ fontSize: '32px', display: 'inline-block' }}
                     repeat={Infinity}
                 /> </p>
-            <button className="bg-primeryColor px-6 py-2 mt-5 sm:mb-0 mb-5 rounded-lg text-textColor text-xl">Donate Blood Here <i class="fa-solid pl-3 fa-arrow-right"></i></button>
+            <div className="mt-10 sm:mb-0 mb-5">
+                <Link to="/donateblood" className="bg-primeryColor px-6 py-2 rounded-lg text-textColor text-xl">Donate Blood Here <i class="fa-solid pl-3 fa-arrow-right"></i></Link>
+            </div>
         </div>
 
         <div className="sm:mt-0 mt-5">

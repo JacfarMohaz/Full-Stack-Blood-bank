@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import somLogoPNG from "../../assets/som blood bank logo.png"
 
 
@@ -12,7 +13,9 @@ function Footer() {
                     situation and need blood, <br /> <br />
                     please register on the website <br />
                     to help us in a difficult situation</h1>
-                <button className="bg-primeryColor px-6 py-2 mt-4 rounded-lg text-textColor text-xl">Register Here</button>
+                <div className="mt-10 sm:mb-0 mb-5">
+                    <Link to="/donateblood" className="bg-primeryColor px-6 py-2 rounded-lg text-textColor text-xl">Register Here</Link>
+                </div>
             </div>
 
             <div className="pt-20 pl-10 sm:pl-0">

@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const donorsRouter = require("./Router/DonorsRouter")
 const cors = require("cors")
+const userRouter = require("./Router/UserRouter")
 
 
 const app = express()
@@ -12,6 +13,11 @@ app.use(cors())
 
 // donors router
 app.use(donorsRouter)
+
+// user router
+app.use(userRouter)
+
+
 
 
 // connection database

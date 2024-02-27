@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 function SystemHeader() {
 
@@ -14,9 +15,9 @@ function SystemHeader() {
 
     return <div className="ml-[18%] border border-gray-100 shadow-md p-4 ">
         <h1 className="text-xl font-semibold text-seconderyColor">So<span className="text-fourthColor">m</span> Blood Bank</h1>
-        <i class="fa-regular absolute text-2xl text-seconderyColor right-36  top-4 fa-bell">
+        <Link to="/useraccept"><i class="fa-regular absolute text-2xl text-seconderyColor right-36  top-4 fa-bell">
             <div className="bg-primeryColor w-8 h-5 rounded-lg absolute -top-2 left-2"><p className="text-sm pl-2 text-textColor">12</p></div>
-        </i>
+        </i></Link>
 
         <div className="absolute top-4 right-12 flex border border-gray-100">
             <div className="bg-primeryColor w-8 h-8 rounded-full">

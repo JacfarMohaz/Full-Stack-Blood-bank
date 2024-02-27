@@ -28,6 +28,77 @@ const ReadDonors = async (req, res) => {
     }
 }
 
+// read BloodType API's Start Here
+
+// read only data bloodtype A+ 
+const ReadAPlas = async (req, res) => {
+    const getAPlas = await donorsModel.find({bloodType: "A+"})
+    if(getAPlas){
+        res.send(getAPlas)
+    }
+}
+
+// read only data bloodtype A- 
+const ReadAMinus = async (req, res) => {
+    const getAPlas = await donorsModel.find({bloodType: "A-"})
+    if(getAPlas){
+        res.send(getAPlas)
+    }
+}
+
+
+// read only data bloodtype B+ 
+const ReadBPlas = async (req, res) => {
+    const getAPlas = await donorsModel.find({bloodType: "B+"})
+    if(getAPlas){
+        res.send(getAPlas)
+    }
+}
+
+// read only data bloodtype B-
+const ReadBMinus = async (req, res) => {
+    const getAPlas = await donorsModel.find({bloodType: "B-"})
+    if(getAPlas){
+        res.send(getAPlas)
+    }
+}
+
+// read only data bloodtype AB+ 
+const ReadABPlas = async (req, res) => {
+    const getAPlas = await donorsModel.find({bloodType: "AB+"})
+    if(getAPlas){
+        res.send(getAPlas)
+    }
+}
+
+// read only data bloodtype AB-
+const ReadABMinus = async (req, res) => {
+    const getAPlas = await donorsModel.find({bloodType: "AB-"})
+    if(getAPlas){
+        res.send(getAPlas)
+    }
+}
+
+// read only data bloodtype O+ 
+const ReadOPlas = async (req, res) => {
+    const getAPlas = await donorsModel.find({bloodType: "O+"})
+    if(getAPlas){
+        res.send(getAPlas)
+    }
+}
+
+
+// read only data bloodtype O- 
+const ReadOMinus = async (req, res) => {
+    const getAPlas = await donorsModel.find({bloodType: "O-"})
+    if(getAPlas){
+        res.send(getAPlas)
+    }
+}
+
+
+// BloodType API's End Here
+
 // delete Donors
 const DeleteDonor = async (req, res) => {
     try {
@@ -58,4 +129,6 @@ const SearchDonor = async (req, res) => {
 }
 
 
-module.exports = { RegisterDonors, ReadDonors, DeleteDonor, SearchDonor }
+
+
+module.exports = { RegisterDonors, ReadDonors, DeleteDonor, SearchDonor, ReadAPlas, ReadAMinus, ReadBPlas, ReadBMinus, ReadABPlas, ReadABMinus, ReadOPlas, ReadOMinus }

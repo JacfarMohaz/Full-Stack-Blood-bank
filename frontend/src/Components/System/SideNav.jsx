@@ -31,14 +31,8 @@ function SideNav() {
             <NavLink to="/bloodtype"> <i class="fa-solid fa-droplet"></i> Blood Type</NavLink>
 
 
-            <div> <i class="fa-solid fa-hospital"></i> Hospitals
-                <i onClick={handleIsOpen} style={{ display: isOpen === true ? "none" : "" }} class="fa-solid text-sm pl-7 absolute top-[25em] pt-4 fa-chevron-down"></i>
-                <i onClick={handleIsClose} style={{ display: isOpen === true ? "block" : "" }} class="fa-solid text-sm pl-40 hidden absolute top-[25em] pt-4 fa-chevron-up"></i>
-                <div style={{display: isOpen === true ? "block" : ""}} className="text-sm pl-5 pt-4 hidden">
-                    <div><i class="fa-regular fa-circle"></i> requesting hospital</div>
-                    <div className="pt-2"><i class="fa-regular fa-circle"></i> List of hospital</div>
-                </div>
-            </div>
+            <NavLink to="/users"> <i class="fa-solid fa-users"></i> Users</NavLink>
+            
 
         </div>
         <div className="absolute bottom-0">

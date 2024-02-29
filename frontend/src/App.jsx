@@ -44,7 +44,7 @@ function App() {
     <Route path="/users" element={<Users />} />
     <Route path="/updateusers/:id" element={<UpdateUsers />} />
     <Route path="/useraccept" element={<UserAccept />} />
-    <Route path="/userprofile" element={<UserProfile />} />
+    <Route path="/userprofile/:id" element={<UserProfile />} />
 
 
 

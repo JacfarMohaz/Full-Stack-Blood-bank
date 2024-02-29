@@ -20,7 +20,7 @@ const RegisterUser = async (req, res) => {
 const loginUser = async (req, res) => {
     try {
         if (req.body.email && req.body.password) {
-            const userLogin = await userModel.findOne(req.body)
+            const userLogin = await userModel.findOne(req.body).select("-password")
             if (userLogin) {
                 res.send(userLogin)
             } else {
@@ -50,6 +50,20 @@ const ReadUsers = async (req, res) => {
         console.log(error)
     }
 }
+
+
+// read total users
+const TotalUsers = async (req, res) => {
+    try {
+        const getTotalUsers = await userModel.find().countDocuments()
+        if(getTotalUsers){
+            res.send({getTotalUsers})
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 // search user
 const SearchUser = async (req, res) => {
@@ -130,4 +144,26 @@ const UpdateUserApproved = async (req, res) => {
     }
 }
 
-module.exports = {RegisterUser, loginUser, ReadUsers, SearchUser, DeleteUser, ReadSingleUser, UpdateUser, ReadIsApproved, UpdateUserApproved}
+
+// read total unapproved users
+// read only users approved is false
+const ReadUnApprovedUser = async (req, res) => {
+    const getIsApproved = await userModel.find({isApproved: "false"}).countDocuments()
+    if(getIsApproved){
+        res.send({getIsApproved})
+    }
+}
+
+module.exports = {
+    RegisterUser, 
+    loginUser, 
+    ReadUsers, 
+    SearchUser, 
+    DeleteUser, 
+    ReadSingleUser, 
+    UpdateUser, 
+    ReadIsApproved, 
+    UpdateUserApproved, 
+    ReadUnApprovedUser,
+    TotalUsers
+}

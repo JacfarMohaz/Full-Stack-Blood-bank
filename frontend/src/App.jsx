@@ -18,52 +18,47 @@ import Users from "./Components/System/Users"
 import UpdateUsers from "./Pages/System/UpdateUsers"
 import { useEffect } from "react"
 import UserAccept from "./Pages/System/UserAccept"
+import UserProfile from "./Pages/System/UserProfile"
 
 function App() {
 
-  // const isAuth = localStorage.getItem("user")
+  
 
-  // const navigate = useNavigate()
+  return <Routes>
 
-  // const handleRefresh = () => {
-  //   if (!isAuth) {
-  //     navigate("/")
-  //   }
-  // }
+    <Route path="/" element={<Website />} />
+    <Route path="/donateblood" element={<DonateBlood />} />
 
-  // useEffect(() => {
-  //   handleRefresh()
-  // }, [])
 
-  return <>
-    <Routes>
-      <Route path="/" element={<Website />} />
-      <Route path="/donateblood" element={<DonateBlood />} />
-    </Routes>
-    {/* {isAuth ? */}
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/donors" element={<Donors />} />
-        <Route path="/bloodtype" element={<BloodType />} />
-        <Route path="/aplas" element={<APlas />} />
-        <Route path="/aminus" element={<AMinus />} />
-        <Route path="/bplas" element={<BPlas />} />
-        <Route path="/bminus" element={<BMinus />} />
-        <Route path="/abplas" element={<ABPlas />} />
-        <Route path="/abminus" element={<ABMinus />} />
-        <Route path="/oplas" element={<OPlas />} />
-        <Route path="/ominus" element={<OMinus />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/updateusers/:id" element={<UpdateUsers />} />
-        <Route path="/useraccept" element={<UserAccept />} />
-      </Routes>
-       {/* : */}
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    {/* }  */}
-  </>
+    <Route path="/dashboard" element={<Dashboard />} />
+    <Route path="/donors" element={<Donors />} />
+    <Route path="/bloodtype" element={<BloodType />} />
+    <Route path="/aplas" element={<APlas />} />
+    <Route path="/aminus" element={<AMinus />} />
+    <Route path="/bplas" element={<BPlas />} />
+    <Route path="/bminus" element={<BMinus />} />
+    <Route path="/abplas" element={<ABPlas />} />
+    <Route path="/abminus" element={<ABMinus />} />
+    <Route path="/oplas" element={<OPlas />} />
+    <Route path="/ominus" element={<OMinus />} />
+    <Route path="/users" element={<Users />} />
+    <Route path="/updateusers/:id" element={<UpdateUsers />} />
+    <Route path="/useraccept" element={<UserAccept />} />
+    <Route path="/userprofile" element={<UserProfile />} />
+
+
+
+    <Route path="/login" element={<Login />} />
+    <Route path="/register" element={<Register />} />
+
+
+
+
+
+
+  </Routes>
+
+
 }
 
 export default App

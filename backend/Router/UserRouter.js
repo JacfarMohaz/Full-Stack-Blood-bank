@@ -12,6 +12,8 @@ router.get("/readsingle/users/:id", userController.ReadSingleUser)
 router.put("/update/users/:id", userController.UpdateUser)
 router.get("/approved/users", userController.ReadIsApproved)
 router.put("/updateapproved/users/:id", userController.UpdateUserApproved)
+router.get("/unapproved/users", userController.ReadUnApprovedUser)
+router.get("/total/users", userController.TotalUsers)
 
 module.exports = router
 

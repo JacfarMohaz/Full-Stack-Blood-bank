@@ -68,18 +68,16 @@ function OPlas() {
             </table>
         </div>
 
-        <div style={{ display: isOpen === true ? "block" : "" }} className="bg-primeryColor w-[35em] hidden h-[18em] rounded-xl ml-[66%] pt-16 text-textColor absolute top-36 right-60">
+        <div style={{ display: isOpen === true ? "block" : "" }} className="bg-primeryColor w-[35em] hidden h-[24em] rounded-xl ml-[66%] pt-16 text-textColor absolute top-36 right-60">
             <h1 className="text-4xl font-semibold absolute top-5 left-36">Send Message</h1>
             <div className="flex justify-around pt-10">
                 <i onClick={handleIsClose} class="fa-solid text-4xl cursor-pointer absolute top-0 right-2 fa-xmark"></i>
-                <div>
-                    <i class="fa-solid text-6xl pl-2 fa-envelope"></i>
-                    <p className="text-4xl pt-3">Emial</p>
-                </div>
-                <div>
-                    <i class="fa-brands text-6xl pl-10 fa-square-whatsapp"></i>
-                    <p className="text-4xl pt-3">WhatsApp</p>
-                </div>
+                <form className="">
+                    <label className="text-2xl text-textColor">Subject</label><br />
+                    <input className="w-60 h-10 rounded-xl outline-none p-2 bg-gray-300" type="text" placeholder="Subject"  /><br />
+                    <label className="text-2xl text-textColor">Recipient's</label> <br />
+                    <textarea className="w-60 h-28 rounded-xl outline-none p-2 bg-gray-300" id="" cols="30" rows="5" placeholder="Recipients"></textarea>
+                </form>
             </div>
         </div>
 

@@ -15,5 +15,6 @@ router.get("/abplas/donors", donorController.ReadABPlas)
 router.get("/abminus/donors", donorController.ReadABMinus)
 router.get("/oplas/donors", donorController.ReadOPlas)
 router.get("/ominus/donors", donorController.ReadOMinus)
+router.get("/total/donors", donorController.TotalDonors)
 
 module.exports = router

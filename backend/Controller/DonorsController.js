@@ -28,20 +28,33 @@ const ReadDonors = async (req, res) => {
     }
 }
 
+
+// read  total donors data
+const TotalDonors = async (req, res) => {
+    try {
+        const getTotalDonors = await donorsModel.find().countDocuments()
+        if (getTotalDonors) {
+            res.send({getTotalDonors})
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 // read BloodType API's Start Here
 
 // read only data bloodtype A+ 
 const ReadAPlas = async (req, res) => {
-    const getAPlas = await donorsModel.find({bloodType: "A+"})
-    if(getAPlas){
+    const getAPlas = await donorsModel.find({ bloodType: "A+" })
+    if (getAPlas) {
         res.send(getAPlas)
     }
 }
 
 // read only data bloodtype A- 
 const ReadAMinus = async (req, res) => {
-    const getAPlas = await donorsModel.find({bloodType: "A-"})
-    if(getAPlas){
+    const getAPlas = await donorsModel.find({ bloodType: "A-" })
+    if (getAPlas) {
         res.send(getAPlas)
     }
 }
@@ -49,40 +62,40 @@ const ReadAMinus = async (req, res) => {
 
 // read only data bloodtype B+ 
 const ReadBPlas = async (req, res) => {
-    const getAPlas = await donorsModel.find({bloodType: "B+"})
-    if(getAPlas){
+    const getAPlas = await donorsModel.find({ bloodType: "B+" })
+    if (getAPlas) {
         res.send(getAPlas)
     }
 }
 
 // read only data bloodtype B-
 const ReadBMinus = async (req, res) => {
-    const getAPlas = await donorsModel.find({bloodType: "B-"})
-    if(getAPlas){
+    const getAPlas = await donorsModel.find({ bloodType: "B-" })
+    if (getAPlas) {
         res.send(getAPlas)
     }
 }
 
 // read only data bloodtype AB+ 
 const ReadABPlas = async (req, res) => {
-    const getAPlas = await donorsModel.find({bloodType: "AB+"})
-    if(getAPlas){
+    const getAPlas = await donorsModel.find({ bloodType: "AB+" })
+    if (getAPlas) {
         res.send(getAPlas)
     }
 }
 
 // read only data bloodtype AB-
 const ReadABMinus = async (req, res) => {
-    const getAPlas = await donorsModel.find({bloodType: "AB-"})
-    if(getAPlas){
+    const getAPlas = await donorsModel.find({ bloodType: "AB-" })
+    if (getAPlas) {
         res.send(getAPlas)
     }
 }
 
 // read only data bloodtype O+ 
 const ReadOPlas = async (req, res) => {
-    const getAPlas = await donorsModel.find({bloodType: "O+"})
-    if(getAPlas){
+    const getAPlas = await donorsModel.find({ bloodType: "O+" })
+    if (getAPlas) {
         res.send(getAPlas)
     }
 }
@@ -90,8 +103,8 @@ const ReadOPlas = async (req, res) => {
 
 // read only data bloodtype O- 
 const ReadOMinus = async (req, res) => {
-    const getAPlas = await donorsModel.find({bloodType: "O-"})
-    if(getAPlas){
+    const getAPlas = await donorsModel.find({ bloodType: "O-" })
+    if (getAPlas) {
         res.send(getAPlas)
     }
 }
@@ -120,7 +133,7 @@ const SearchDonor = async (req, res) => {
                 { fullName: { $regex: req.params.key } }
             ]
         })
-        if(filterDonor){
+        if (filterDonor) {
             res.send(filterDonor)
         }
     } catch (error) {
@@ -131,4 +144,18 @@ const SearchDonor = async (req, res) => {
 
 
 
-module.exports = { RegisterDonors, ReadDonors, DeleteDonor, SearchDonor, ReadAPlas, ReadAMinus, ReadBPlas, ReadBMinus, ReadABPlas, ReadABMinus, ReadOPlas, ReadOMinus }
+module.exports = {
+    RegisterDonors,
+    ReadDonors,
+    DeleteDonor,
+    SearchDonor,
+    ReadAPlas,
+    ReadAMinus,
+    ReadBPlas,
+    ReadBMinus,
+    ReadABPlas,
+    ReadABMinus,
+    ReadOPlas,
+    ReadOMinus,
+    TotalDonors
+}

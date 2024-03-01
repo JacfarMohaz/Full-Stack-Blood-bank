@@ -5,6 +5,7 @@ function DashboardCards() {
 
     const [totlaDonors, setTotalDonors] = useState([])
     const [totalUsers, setTotalUsers] = useState([])
+    const [totalEmails, setTotalEmails] = useState([])
 
     const handleReadTotalDonors = () => {
         axios.get("http://localhost:7000/total/donors").then((res) => {
@@ -12,6 +13,11 @@ function DashboardCards() {
         }).catch((error) => console.log(error))
     }
     
+    const handleReadTotalEmails = () => {
+        axios.get("http://localhost:7000/total/emails").then((res) => {
+            setTotalEmails(res.data.getTotalEmails)
+        }).catch((error) => console.log(error))
+    }
 
     const handleReadTotalUsers = () => {
         axios.get("http://localhost:7000/total/users").then((res) => {
@@ -22,6 +28,7 @@ function DashboardCards() {
     useEffect(() => {
         handleReadTotalDonors()
         handleReadTotalUsers()
+        handleReadTotalEmails()
     }, [])
 
     return <div className="grid grid-cols-3 ml-[22%]">
@@ -39,7 +46,7 @@ function DashboardCards() {
         {/* third */}
         <div className="bg-seconderyColor w-60 h-36 rounded-lg shadow-2xl mt-10 text-textColor">
             <h1 className="text-md font-semibold pt-4 pl-3">All Messages</h1>
-            <p className="text-4xl font-bold pl-10 pt-6">30 <i class="fa-solid pl-6 fa-envelope"></i></p>
+            <p className="text-4xl font-bold pl-10 pt-6">{totalEmails > 0 ? totalEmails : 0} <i class="fa-solid pl-6 fa-envelope"></i></p>
         </div>
 
     </div>

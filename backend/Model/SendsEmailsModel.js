@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const sendEmailsSchema = mongoose.Schema({
-    toEmail:{
+    to:{
         type: String,
         required: true
     },

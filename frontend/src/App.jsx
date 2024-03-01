@@ -26,10 +26,11 @@ function App() {
 
   return <Routes>
 
+    {/* Website routes */}
     <Route path="/" element={<Website />} />
     <Route path="/donateblood" element={<DonateBlood />} />
 
-
+    {/* System Routes */}
     <Route path="/dashboard" element={<Dashboard />} />
     <Route path="/donors" element={<Donors />} />
     <Route path="/bloodtype" element={<BloodType />} />
@@ -47,7 +48,7 @@ function App() {
     <Route path="/userprofile/:id" element={<UserProfile />} />
 
 
-
+    {/* Login & Registration Router */}
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
 

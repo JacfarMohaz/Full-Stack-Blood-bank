@@ -2,10 +2,32 @@ import { useState, useEffect } from "react"
 import SideNav from "../SideNav"
 import SystemHeader from "../SystemHeader"
 import axios from "axios"
+import Swal from 'sweetalert2'
+
 
 function ABPlas() {
     
     const [ABPlas, setABplas] = useState([])
+
+    const [subject, setSubject] = useState("")
+    const [text, setText] = useState("")
+
+    const handleSendEmail = (e) => {
+        e.preventDefault()
+        axios.post("http://localhost:7000/abplas/emails", {
+            "subject": subject,
+            "text": text
+        }).then((res) => {
+            Swal.fire({
+                title: "Succes Email Sends",
+                text: "Email Sends all Blood type AB+",
+                icon: "success"
+            })
+            setSubject("")
+            setText("")
+            setIsOpen(false)
+        }).catch((error) => console.log(error))
+    }
 
     const handleReadABPlas = () => {
         axios.get("http://localhost:7000/abplas/donors").then((res) => {
@@ -68,15 +90,16 @@ function ABPlas() {
             </table>
         </div>
 
-        <div style={{ display: isOpen === true ? "block" : "" }} className="bg-primeryColor w-[35em] hidden h-[24em] rounded-xl ml-[66%] pt-16 text-textColor absolute top-36 right-60">
-            <h1 className="text-4xl font-semibold absolute top-5 left-36">Send Message</h1>
-            <div className="flex justify-around pt-10">
-                <i onClick={handleIsClose} class="fa-solid text-4xl cursor-pointer absolute top-0 right-2 fa-xmark"></i>
+        <div style={{ display: isOpen === true ? "block" : "" }} className="bg-primeryColor w-[35em] hidden h-[24em] rounded-xl ml-[66%] pt-16 absolute top-36 right-60">
+            <h1 className="text-4xl font-semibold absolute top-5 left-36 text-textColor">Send Message</h1>
+            <div className="flex justify-around pt-5">
+                <i onClick={handleIsClose} class="fa-solid text-textColor text-4xl cursor-pointer absolute top-0 right-2 fa-xmark"></i>
                 <form className="">
                     <label className="text-2xl text-textColor">Subject</label><br />
-                    <input className="w-60 h-10 rounded-xl outline-none p-2 bg-gray-300" type="text" placeholder="Subject"  /><br />
-                    <label className="text-2xl text-textColor">Recipient's</label> <br />
-                    <textarea className="w-60 h-28 rounded-xl outline-none p-2 bg-gray-300" id="" cols="30" rows="5" placeholder="Recipients"></textarea>
+                    <input value={subject} onChange={(e) => setSubject(e.target.value)} className="w-60 h-10 rounded-xl outline-none p-2 bg-gray-300" type="text" placeholder="Subject" /><br />
+                    <label className="text-2xl text-textColor">Text</label> <br />
+                    <textarea value={text} onChange={(e) => setText(e.target.value)} className="w-60 h-28 rounded-xl outline-none p-2 bg-gray-300" id="" cols="30" rows="5" placeholder="Text"></textarea> <br />
+                    <button onClick={handleSendEmail} className="bg-fourthColor text-primeryColor px-10 py-2 rounded-lg font-semibold ml-10 mt-2 text-xl">Send</button>
                 </form>
             </div>
         </div>

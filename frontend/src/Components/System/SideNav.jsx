@@ -1,20 +1,9 @@
 import { NavLink } from "react-router-dom"
 import somLogoPNG from "../../assets/som blood bank logo.png"
 import logIcon from "../../assets/logoIcon.png"
-import { useState } from "react"
 
 
 function SideNav() {
-
-    const [isOpen, setIsOpen] = useState(false)
-
-    const handleIsOpen = () => {
-        setIsOpen(true)
-    }
-
-    const handleIsClose = () => {
-        setIsOpen(false)
-    }
 
 
     return <div className="w-[18%] h-screen fixed border-r-2 border-gray-100 shadow-lg">

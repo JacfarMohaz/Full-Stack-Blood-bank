@@ -6,6 +6,7 @@ function SystemHeader() {
 
     const [isDown, setIsDown] = useState(false)
 
+
     const [isApproved, setIsApproved] = useState([])
 
     const getUsersUnApproved = () => {
@@ -40,7 +41,7 @@ function SystemHeader() {
 
         <div onClick={handleIsDown} className="absolute top-4 right-12 flex border border-gray-100">
             <div className="bg-primeryColor w-8 h-8 rounded-full">
-                <h1 className="text-2xl pl-2 cursor-pointer text-textColor">{ userName && JSON.parse(userName).userName[0]}</h1>
+                <h1 className="text-2xl pl-2 cursor-pointer text-textColor">{userName && JSON.parse(userName).userName[0]}</h1>
             </div>
         </div>
 

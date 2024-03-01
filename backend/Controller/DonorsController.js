@@ -157,5 +157,5 @@ module.exports = {
     ReadABMinus,
     ReadOPlas,
     ReadOMinus,
-    TotalDonors
+    TotalDonors,
 }

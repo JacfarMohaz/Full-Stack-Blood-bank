@@ -42,9 +42,9 @@ function Header() {
 
         <div style={{ display: isOpen === true ? "block" : "" }} className="hidden border-b-2 border-fourthColor shadow-sm">
             <ul className="sm:hidden text-3xl space-y-5 pl-4 font-semibold font-mono text-primeryColor">
-                <li className="hover:bg-fourthColor">Home</li>
-                <li className="hover:bg-fourthColor">About</li>
-                <li className="hover:bg-fourthColor">Blog</li>
+                <Link to="/"><li className="hover:bg-fourthColor">Home</li></Link>
+                <Link><li className="hover:bg-fourthColor">About</li></Link>
+                <Link to="/blog"><li className="hover:bg-fourthColor">Blog</li></Link>
             </ul>
 
 

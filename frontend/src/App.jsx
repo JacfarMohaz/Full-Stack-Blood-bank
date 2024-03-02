@@ -19,6 +19,7 @@ import UpdateUsers from "./Pages/System/UpdateUsers"
 import { useEffect } from "react"
 import UserAccept from "./Pages/System/UserAccept"
 import UserProfile from "./Pages/System/UserProfile"
+import BlogPage from "./Pages/Website/BlogPage"
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
     {/* Website routes */}
     <Route path="/" element={<Website />} />
     <Route path="/donateblood" element={<DonateBlood />} />
+    <Route path="/blog" element={<BlogPage />} />
 
     {/* System Routes */}
     <Route path="/dashboard" element={<Dashboard />} />

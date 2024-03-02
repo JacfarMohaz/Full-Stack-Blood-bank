@@ -1,10 +1,20 @@
 import { NavLink } from "react-router-dom"
 import somLogoPNG from "../../assets/som blood bank logo.png"
 import logIcon from "../../assets/logoIcon.png"
+import { useEffect, useState } from "react"
 
 
 function SideNav() {
 
+    const [isAdmin, setIsAdmin] = useState("admin")
+
+    const userName = localStorage.getItem("user")
+
+    useEffect(() => {
+        if(JSON.parse(userName).role === "user"){
+            setIsAdmin("user")
+        }
+    }, [])
 
     return <div className="w-[18%] h-screen fixed border-r-2 border-gray-100 shadow-lg">
         <img className="w-20 ml-14" src={somLogoPNG} />
@@ -14,13 +24,13 @@ function SideNav() {
             <NavLink to="/dashboard"> <i class="fa-brands fa-microsoft"></i> Dashboard</NavLink>
 
 
-            <NavLink to="/donors"> <i class="fa-solid fa-hand-holding-droplet"></i> Donors</NavLink>
+            <NavLink style={{display: isAdmin === "user" ? "none" : ""}} to="/donors"> <i class="fa-solid fa-hand-holding-droplet"></i> Donors</NavLink>
 
 
             <NavLink to="/bloodtype"> <i class="fa-solid fa-droplet"></i> Blood Type</NavLink>
 
 
-            <NavLink to="/users"> <i class="fa-solid fa-users"></i> Users</NavLink>
+            <NavLink style={{display: isAdmin === "user" ? "none" : ""}} to="/users"> <i class="fa-solid fa-users"></i> Users</NavLink>
             
 
         </div>

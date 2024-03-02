@@ -20,9 +20,11 @@ function Footer() {
 
             <div className="pt-20 pl-10 sm:pl-0">
                 <h1 className="text-3xl font-semibold pb-5 text-primeryColor">Explore</h1>
-                <p className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">Home</p>
-                <p className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">About</p>
-                <p className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">Blog</p>
+                <ul>
+                    <Link to="/"><li className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">Home</li></Link>
+                    <Link><li className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">About</li></Link>
+                    <Link to="/blog"><li className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">Blog</li></Link>
+                </ul>
             </div>
 
             <div className="pt-20 pl-10 sm:pl-0">

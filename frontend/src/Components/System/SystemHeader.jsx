@@ -9,6 +9,8 @@ function SystemHeader() {
 
     const [isApproved, setIsApproved] = useState([])
 
+    const [isAdmin, setIsAdmin] = useState("admin")
+
     const getUsersUnApproved = () => {
         axios.get("http://localhost:7000/unapproved/users").then((res) => {
             setIsApproved(res.data.getIsApproved)
@@ -16,6 +18,9 @@ function SystemHeader() {
     }
 
     useEffect(() => {
+        if(JSON.parse(userName).role === "user"){
+            setIsAdmin("user")
+        }
         getUsersUnApproved()
     }, [])
 
@@ -35,7 +40,7 @@ function SystemHeader() {
 
     return <div className="ml-[18%] border border-gray-100 shadow-md p-4 ">
         <h1 className="text-xl font-semibold text-seconderyColor">So<span className="text-fourthColor">m</span> Blood Bank</h1>
-        <Link to="/useraccept"><i class="fa-regular absolute text-2xl text-seconderyColor right-36  top-4 fa-bell">
+        <Link style={{display: isAdmin === "user" ? "none" : ""}} to="/useraccept"><i class="fa-regular absolute text-2xl text-seconderyColor right-28  top-5 fa-bell">
             <div className="bg-primeryColor w-8 h-5 rounded-lg absolute -top-2 left-2"><p className="text-sm pl-2 text-textColor">{isApproved > 0 ? isApproved : 0}</p></div>
         </i></Link>
 

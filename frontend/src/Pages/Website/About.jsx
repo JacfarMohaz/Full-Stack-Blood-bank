@@ -2,7 +2,7 @@ import LogoPNG from "../../assets/logo jpg.png"
 
 
 function About() {
-    return <div className="max-w[1400px] mx-auto w-full sm:h-[38em] h-[75em] bg-fourthColor mt-10">
+    return <div id="about" className="max-w[1400px] mx-auto w-full sm:h-[38em] h-[75em] bg-fourthColor mt-10">
         <h1 className="text-5xl font-bold text-center text-primeryColor pt-8">About Us</h1>
         <div className="sm:flex px-5 sm:px-0 justify-center items-center gap-20 pt-10">
             <img className="w-52 h-52 rounded-full sm:ml-0 ml-20" src={LogoPNG} />

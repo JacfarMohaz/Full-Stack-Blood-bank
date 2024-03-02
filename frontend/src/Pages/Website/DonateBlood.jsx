@@ -82,7 +82,7 @@ const DonateBlood = () => {
       {formSubmitted && <p>Form submitted successfully!</p>}
       <form className='bg-primeryColor p-5 sm:w-[45%] w-[23.4em] sm:h-[28em]  rounded-xl sm:ml-80 ml-2 mt-10 mb-10' onSubmit={handleSubmit}>
         <div className='pt-5 sm:pl-20 pl-2 pb-5'>
-          <label className='text-fourthColor font-semibold text-xl'>Full Name:</label>
+          <label className='text-textColor font-semibold text-xl'>Full Name:</label>
           <input className='bg-gray-300 ml-2 rounded-lg outline-none sm:w-60 px-2' placeholder='Enter Foull Name'
             type="text"
             name="fullName"
@@ -92,7 +92,7 @@ const DonateBlood = () => {
           />
         </div>
         <div className='sm:pl-20 pl-2 pb-5'>
-          <label className='text-fourthColor font-semibold text-xl'>Address:</label>
+          <label className='text-textColor font-semibold text-xl'>Address:</label>
           <input className='bg-gray-300 ml-4 rounded-lg outline-none sm:w-60 px-2' placeholder='Enter your Address'
             type="text"
             name="address"
@@ -102,7 +102,7 @@ const DonateBlood = () => {
           />
         </div>
         <div className='sm:pl-20 pl-2 pb-5'>
-          <label className='text-fourthColor font-semibold text-xl'>Email:</label>
+          <label className='text-textColor font-semibold text-xl'>Email:</label>
           <input className='bg-gray-300 ml-2 rounded-lg outline-none sm:w-60 px-2' placeholder='Enter your Email'
             type="email"
             name="email"
@@ -112,7 +112,7 @@ const DonateBlood = () => {
           />
         </div>
         <div className='sm:pl-20 pl-2 pb-5'>
-          <label className='text-fourthColor font-semibold text-xl'>Phone:</label>
+          <label className='text-textColor font-semibold text-xl'>Phone:</label>
           <input className='bg-gray-300 ml-2 rounded-lg outline-none sm:w-60 px-2' placeholder='Enter Phone using WhatsApp'
             type="text"
             name="phoneNumber"
@@ -122,7 +122,7 @@ const DonateBlood = () => {
           />
         </div>
         <div className='sm:pl-20 pl-2 pb-5'>
-          <label className='text-fourthColor font-semibold text-xl'>Gender:</label>
+          <label className='text-textColor font-semibold text-xl'>Gender:</label>
           <select className='bg-gray-300 ml-2 rounded-lg outline-none sm:w-60 px-2' name="gender" value={gender} onChange={(e) => setGender(e.target.value)} required>
             <option value="">Select Gender</option>
             <option value="male">Male</option>
@@ -130,7 +130,7 @@ const DonateBlood = () => {
           </select>
         </div>
         <div className='sm:pl-20 pl-2 pb-5'>
-          <label className='text-fourthColor font-semibold text-xl'>Age:</label>
+          <label className='text-textColor font-semibold text-xl'>Age:</label>
           <input className='bg-gray-300 ml-2 rounded-lg outline-none sm:w-60 px-2' placeholder='Enter your Age'
             type="text"
             name="age"
@@ -140,7 +140,7 @@ const DonateBlood = () => {
           />
         </div>
         <div className='sm:pl-20 pl-2 pb-5'>
-          <label className='text-fourthColor font-semibold text-xl'>Blood Type:</label>
+          <label className='text-textColor font-semibold text-xl'>Blood Type:</label>
           <select className='bg-gray-300 ml-2 rounded-lg outline-none sm:w-60 px-2' name="bloodType" value={bloodType} onChange={(e) => setBloodType(e.target.value)} required>
             <option value="">Select Blood Type</option>
             {bloodTypes.map((type, index) => (

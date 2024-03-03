@@ -60,7 +60,7 @@ function UserAccept() {
                                 <td className="py-4">{data.role}</td>
                                 <td className="py-4">{new Date(data.createdAt).toDateString()}</td>
                                 <td className="py-4">
-                                    <i onClick={() => handleUpdateApproved(data._id)} class="fa-solid cursor-pointer text-2xl text-green-500 fa-check"></i>
+                                    <i onClick={() => handleUpdateApproved(data._id)} class="fa-solid cursor-pointer text-2xl text-primeryColor fa-check"></i>
                                 </td>
                             </tr>
                         </tbody>

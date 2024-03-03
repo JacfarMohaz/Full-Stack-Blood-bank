@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { Link } from "react-router-dom"
 
 function DashboardCards() {
 
@@ -32,22 +33,22 @@ function DashboardCards() {
     }, [])
 
     return <div className="grid grid-cols-3 ml-[22%]">
-        <div className="bg-seconderyColor w-60 h-36 rounded-lg shadow-2xl mt-10 text-textColor">
+        <Link to="/donors" className="bg-seconderyColor w-60 h-36 rounded-lg shadow-2xl mt-10 text-textColor">
             <h1 className="text-md font-semibold pt-4 pl-3">Total Donors</h1>
             <p className="text-4xl font-bold pl-10 pt-6">{totlaDonors > 0 ? totlaDonors : 0} <i class="fa-solid pl-4 fa-hand-holding-droplet"></i></p>
-        </div>
+        </Link>
 
         {/* second */}
-        <div className="bg-seconderyColor w-60 h-36 rounded-lg shadow-2xl mt-10 text-textColor">
+        <Link to="/users" className="bg-seconderyColor w-60 h-36 rounded-lg shadow-2xl mt-10 text-textColor">
             <h1 className="text-md font-semibold pt-4 pl-3">All Users</h1>
             <p className="text-4xl font-bold pl-10 pt-6">{totalUsers > 0 ? totalUsers : 0}<i class="fa-solid pl-10 fa-users"></i></p>
-        </div>
+        </Link>
 
         {/* third */}
-        <div className="bg-seconderyColor w-60 h-36 rounded-lg shadow-2xl mt-10 text-textColor">
+        <Link className="bg-seconderyColor w-60 h-36 rounded-lg shadow-2xl mt-10 text-textColor">
             <h1 className="text-md font-semibold pt-4 pl-3">All Messages</h1>
             <p className="text-4xl font-bold pl-10 pt-6">{totalEmails > 0 ? totalEmails : 0} <i class="fa-solid pl-6 fa-envelope"></i></p>
-        </div>
+        </Link>
 
     </div>
 }

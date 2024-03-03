@@ -28,7 +28,7 @@ function Header() {
             <div className="sm:flex hidden text-3xl space-x-10 font-semibold font-mono text-primeryColor">
                 <NavLink>Home</NavLink>
                 <NavLink>About</NavLink>
-                <NavLink>Blog</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
             </div>
 
 

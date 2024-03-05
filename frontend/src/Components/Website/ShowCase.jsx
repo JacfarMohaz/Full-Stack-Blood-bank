@@ -11,14 +11,14 @@ function ShowCase() {
                     sequence={[
                         // Same substring at the start will only be typed out once, initially
                         ' that transcends',
-                        1000, // wait 1s before replacing "Mice" with "Hamsters"
+                        3000, // wait 1s before replacing "Mice" with "Hamsters"
                         ' boundaries',
-                        1000,
+                        3000,
                         ' and saves lives.',
-                        1000
+                        3000
                     ]}
                     wrapper="span"
-                    speed={70}
+                    speed={60}
                     style={{ fontSize: '32px', display: 'inline-block' }}
                     repeat={Infinity}
                 /> </p>

@@ -1,6 +1,7 @@
 import LogoPNG from "../../assets/logo jpg.png"
 
 
+
 function About() {
     return <div id="about" className="max-w[1400px] mx-auto w-full sm:h-[38em] h-[75em] bg-fourthColor mt-10">
         <h1 className="text-5xl font-bold text-center text-primeryColor pt-8">About Us</h1>

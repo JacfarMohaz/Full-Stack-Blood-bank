@@ -20,7 +20,8 @@ router.post("/abplas/emails", sendEmailABPlas)
 router.post("/abminus/emails", sendEmailABMinus)
 router.post("/oplas/emails", sendEmailOPlas)
 router.post("/ominus/emails", sendEmailOMinus)
-router.get("/total/emails",sendEmailController)
+router.get("/total/emails",sendEmailController.TotalEmails)
+router.get("/latest/message", sendEmailController.LatestFiveMessages)
 
 
 module.exports = router

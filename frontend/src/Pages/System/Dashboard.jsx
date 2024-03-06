@@ -25,7 +25,7 @@ const isAuth = localStorage.getItem("user")
         <SideNav />
         <SystemHeader />
         <DashboardCards />
-        {/* <LatestMessages /> */}
+        <LatestMessages />
     </div>
 }
 

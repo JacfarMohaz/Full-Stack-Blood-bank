@@ -12,4 +12,15 @@ const TotalEmails = async (req, res) => {
     }
 }
 
-module.exports = TotalEmails
+const LatestFiveMessages = async (req, res) => {
+    try {
+        const ReadMessages = await sendEmailModel.find().sort({ createdAt: -1 }).limit(5)
+        if(ReadMessages){
+            res.send(ReadMessages)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports = {TotalEmails, LatestFiveMessages}

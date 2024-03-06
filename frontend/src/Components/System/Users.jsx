@@ -48,7 +48,7 @@ function Users() {
         <SystemHeader />
         <div className="bg-fourthColor pb-4 mb-3 w-[75%] h-[70%] ml-[22%] mt-10 rounded-2xl shadow-2xl">
             <div className="flex justify-between px-2 pb-3">
-                <h1 className="text-3xl text-textColor font-semibold pt-4">Blood Donors</h1>
+                <h1 className="text-3xl text-textColor font-semibold pt-4">List of Users</h1>
                 <input onChange={handleSearchUser} type="text" className="outline-none mt-5 w-40 h-7 border-2 border-fourthColor rounded-lg p-2" placeholder="Search ..." />
             </div>
             <hr className="border-b border-thirdColor" />

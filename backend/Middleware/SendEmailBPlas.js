@@ -28,7 +28,7 @@ const ReadEmailAPlas = async () => {
 }
 
 // Function to send email to a single recipient
-const SendEmailsBPlas = async (req, res) => {
+const sendEmailsBPlas = async (req, res) => {
     // Get the array of donor emails
     const donorEmails = await ReadEmailAPlas()
     // Check if the array is not empty
@@ -44,14 +44,27 @@ const SendEmailsBPlas = async (req, res) => {
         })
         // console.log("Email ka waala diray ", info.messageId)
         if (info) {
-            // Store the email content and recipient information in the new collection
-            const sentEmail = new sentEmailsModel({
-                to: recipients,
-                subject: req.body.subject,
-                text: req.body.text,
-            })
-            await sentEmail.save() // Save the document to the database
-            // console.log("Saved the email content")
+            // Loop through the donor emails
+            for (let email of donorEmails) {
+                // Find the donor document by email
+                const donor = await donorsModel.findOne({ email: email })
+                // Check if the donor exists
+                if (donor) {
+                    // Get the blood type from the donor document
+                    const bloodType = donor.bloodType
+
+                    // Store the email content and recipient information in the new collection
+                    const sentEmail = new sentEmailsModel({
+                        to: email,
+                        subject: req.body.subject,
+                        text: req.body.text,
+                        bloodType: bloodType,
+                        userName: req.body.userName
+                    })
+                    await sentEmail.save() // Save the document to the database
+                    // console.log("Saved the email content")
+                }
+            }
             res.send("Email has sent successfully")
         }
     } else {
@@ -61,4 +74,4 @@ const SendEmailsBPlas = async (req, res) => {
     }
 }
 
-module.exports = SendEmailsBPlas
+module.exports = sendEmailsBPlas

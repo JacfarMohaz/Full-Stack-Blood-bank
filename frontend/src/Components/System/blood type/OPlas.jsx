@@ -7,6 +7,15 @@ import Swal from 'sweetalert2'
 
 function OPlas() {
 
+    let bloodType = ""
+
+    let sendEmailUser = ""
+
+    const user = localStorage.getItem("user")
+    if(user) {
+        sendEmailUser = JSON.parse(user).userName
+    }
+
     const [OPlas, setOplas] = useState([])
 
     const [subject, setSubject] = useState("")
@@ -16,7 +25,9 @@ function OPlas() {
         e.preventDefault()
         axios.post("http://localhost:7000/oplas/emails", {
             "subject": subject,
-            "text": text
+            "text": text,
+            "bloodType": bloodType,
+            "userName": sendEmailUser
         }).then((res) => {
             Swal.fire({
                 title: "Succes Email Sends",

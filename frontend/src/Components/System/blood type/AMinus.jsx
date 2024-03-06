@@ -7,6 +7,15 @@ import Swal from 'sweetalert2'
 
 function AMinus() {
 
+    let bloodType = ""
+
+    let sendEmailUser = ""
+
+    const user = localStorage.getItem("user")
+    if(user) {
+        sendEmailUser = JSON.parse(user).userName
+    }
+
     const [Aminus, setAMinus] = useState([])
 
     const [subject, setSubject] = useState("")
@@ -16,7 +25,9 @@ function AMinus() {
         e.preventDefault()
         axios.post("http://localhost:7000/aminus/emails", {
             "subject": subject,
-            "text": text
+            "text": text,
+            "bloodType": bloodType,
+            "userName": sendEmailUser
         }).then((res) => {
             Swal.fire({
                 title: "Succes Email Sends",

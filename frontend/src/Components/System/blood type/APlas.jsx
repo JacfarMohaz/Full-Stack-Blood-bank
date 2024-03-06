@@ -7,6 +7,15 @@ import Swal from 'sweetalert2'
 
 function APlas() {
 
+    let bloodType = ""
+
+    let sendEmailUser = ""
+
+    const user = localStorage.getItem("user")
+    if(user) {
+        sendEmailUser = JSON.parse(user).userName
+    }
+
     const [APlas, setAplas] = useState([])
 
     const [subject, setSubject] = useState("")
@@ -16,7 +25,9 @@ function APlas() {
         e.preventDefault()
         axios.post("http://localhost:7000/aplas/emails", {
             "subject": subject,
-            "text": text
+            "text": text,
+            "bloodType": bloodType,
+            "userName": sendEmailUser
         }).then((res) => {
             Swal.fire({
                 title: "Succes Email Sends",
@@ -32,6 +43,7 @@ function APlas() {
     const handleReadAPlas = () => {
         axios.get("http://localhost:7000/aplas/donors").then((res) => {
             setAplas(res.data)
+            bloodType = res.data[0].bloodType
         }).catch((error) => console.log(error))
     }
 

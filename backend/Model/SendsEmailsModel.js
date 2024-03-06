@@ -12,6 +12,14 @@ const sendEmailsSchema = mongoose.Schema({
     text:{
         type: String,
         required: true
+    },
+    bloodType:{
+        type: String,
+        required: true
+    },
+    userName:{
+        type: String,
+        required: true
     }
 },
 {timestamps: true}

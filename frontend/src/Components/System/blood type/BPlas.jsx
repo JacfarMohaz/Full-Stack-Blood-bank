@@ -6,6 +6,15 @@ import Swal from 'sweetalert2'
 
 
 function BPlas() {
+
+    let bloodType = ""
+
+    let sendEmailUser = ""
+
+    const user = localStorage.getItem("user")
+    if(user) {
+        sendEmailUser = JSON.parse(user).userName
+    }
     
     const [BPlas, setBplas] = useState([])
 
@@ -16,7 +25,9 @@ function BPlas() {
         e.preventDefault()
         axios.post("http://localhost:7000/bplas/emails", {
             "subject": subject,
-            "text": text
+            "text": text,
+            "bloodType": bloodType,
+            "userName": sendEmailUser
         }).then((res) => {
             Swal.fire({
                 title: "Succes Email Sends",

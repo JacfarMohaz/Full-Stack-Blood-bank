@@ -6,6 +6,15 @@ import Swal from 'sweetalert2'
 
 
 function ABMinus() {
+
+    let bloodType = ""
+
+    let sendEmailUser = ""
+
+    const user = localStorage.getItem("user")
+    if(user) {
+        sendEmailUser = JSON.parse(user).userName
+    }
     
     const [ABMinus, setABMinus] = useState([])
 
@@ -16,7 +25,9 @@ function ABMinus() {
         e.preventDefault()
         axios.post("http://localhost:7000/abminus/emails", {
             "subject": subject,
-            "text": text
+            "text": text,
+            "bloodType": bloodType,
+            "userName": sendEmailUser
         }).then((res) => {
             Swal.fire({
                 title: "Succes Email Sends",

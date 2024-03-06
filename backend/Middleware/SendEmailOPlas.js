@@ -18,7 +18,7 @@ const transport = nodemailer.createTransport({
 const ReadEmailAPlas = async () => {
     try {
         // Find donors with blood type A+
-        const getDonors = await donorsModel.find({ bloodType: { $eq: "O+" } }, { email: 1 })
+        const getDonors = await donorsModel.find({ bloodType: { $eq: "O-" } }, { email: 1 })
         if (getDonors.length > 0) {
             return getDonors.map(donorsModel => donorsModel.email)
         }
@@ -27,8 +27,9 @@ const ReadEmailAPlas = async () => {
     }
 }
 
+
 // Function to send email to a single recipient
-const SendEmailsOPlas = async (req, res) => {
+const sendEmailOPlas = async (req, res) => {
     // Get the array of donor emails
     const donorEmails = await ReadEmailAPlas()
     // Check if the array is not empty
@@ -44,14 +45,27 @@ const SendEmailsOPlas = async (req, res) => {
         })
         // console.log("Email ka waala diray ", info.messageId)
         if (info) {
-            // Store the email content and recipient information in the new collection
-            const sentEmail = new sentEmailsModel({
-                to: recipients,
-                subject: req.body.subject,
-                text: req.body.text,
-            })
-            await sentEmail.save() // Save the document to the database
-            // console.log("Saved the email content")
+            // Loop through the donor emails
+            for (let email of donorEmails) {
+                // Find the donor document by email
+                const donor = await donorsModel.findOne({ email: email })
+                // Check if the donor exists
+                if (donor) {
+                    // Get the blood type from the donor document
+                    const bloodType = donor.bloodType
+
+                    // Store the email content and recipient information in the new collection
+                    const sentEmail = new sentEmailsModel({
+                        to: email,
+                        subject: req.body.subject,
+                        text: req.body.text,
+                        bloodType: bloodType,
+                        userName: req.body.userName
+                    })
+                    await sentEmail.save() // Save the document to the database
+                    // console.log("Saved the email content")
+                }
+            }
             res.send("Email has sent successfully")
         }
     } else {
@@ -61,4 +75,4 @@ const SendEmailsOPlas = async (req, res) => {
     }
 }
 
-module.exports = SendEmailsOPlas
+module.exports = sendEmailOPlas

@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom"
 import somLogoPNG from "../../assets/som blood bank logo.png"
+import { useRef } from "react";
 
 
 function Footer() {
+
+    const aboutRef = useRef(null);
+
+  const handleLinkClick = (section) => {
+    const targetSection = document.getElementById(section);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth',  });
+    }
+  };
+
+
     return <div>
 
         <div className="sm:flex justify-between sm:px-40 mt-8 sm:mt-0 pb-5">
@@ -21,8 +33,8 @@ function Footer() {
             <div className="pt-20 pl-10 sm:pl-0">
                 <h1 className="text-3xl font-semibold pb-5 text-primeryColor">Explore</h1>
                 <ul>
-                    <Link to="/"><li className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">Home</li></Link>
-                    <Link><li className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">About</li></Link>
+                    <Link to="/" onClick={() => handleLinkClick("showcase")}><li className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">Home</li></Link>
+                    <Link to="/" onClick={() => handleLinkClick("about")}><li className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">About</li></Link>
                     <Link to="/blog"><li className="text-seconderyColor text-2xl pb-2 hover:text-primeryColor cursor-pointer">Blog</li></Link>
                 </ul>
             </div>

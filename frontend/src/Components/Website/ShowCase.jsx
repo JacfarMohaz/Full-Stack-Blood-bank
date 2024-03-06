@@ -4,7 +4,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 function ShowCase() {
 
-    return <div className="max-w[1400px] h-[480px] w-full sm:flex justify-center gap-20 m-auto py-5 px-4 mt-5">
+    return <div id="showcase" className="max-w[1400px] h-[480px] w-full sm:flex justify-center gap-20 m-auto py-5 px-4 mt-5">
         <div className="sm:mt-20 max-w-[500px] m-auto">
             <p className="sm:text-3xl text-xl text-primeryColor">Every drop of blood donated is a lifeline extended, <br />
                 a gift of hope <TypeAnimation

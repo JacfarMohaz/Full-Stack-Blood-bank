@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import somLogoPNG from "../../assets/som blood bank logo.png"
 import { Link, NavLink } from "react-router-dom"
 
@@ -14,6 +14,15 @@ function Header() {
         setIsOpen(false)
     }
 
+    const aboutRef = useRef(null);
+
+  const handleLinkClick = (section) => {
+    const targetSection = document.getElementById(section);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth',  });
+    }
+  };
+
 
     return <div className="sticky top-0 bg-white">
         {/* big screen section */}
@@ -26,8 +35,8 @@ function Header() {
             <i onClick={HandleIsClose} style={{ display: isOpen === true ? "block" : "" }} class="fa-solid text-6xl text-seconderyColor hidden absolute top-7 right-6 fa-xmark"></i>
 
             <div className="sm:flex hidden text-3xl space-x-10 font-semibold font-mono text-primeryColor">
-                <NavLink>Home</NavLink>
-                <NavLink>About</NavLink>
+                <NavLink onClick={() => handleLinkClick("showcase")}>Home</NavLink>
+                <NavLink onClick={() => handleLinkClick("about")}>About</NavLink>
                 <NavLink to="/blog">Blog</NavLink>
             </div>
 
@@ -42,8 +51,8 @@ function Header() {
 
         <div style={{ display: isOpen === true ? "block" : "" }} className="hidden border-b-2 border-fourthColor shadow-sm">
             <ul className="sm:hidden text-3xl space-y-5 pl-4 font-semibold font-mono text-primeryColor">
-                <Link to="/"><li className="hover:bg-fourthColor">Home</li></Link>
-                <Link><li className="hover:bg-fourthColor">About</li></Link>
+                <Link to="/"><li className="hover:bg-fourthColor" onClick={() => handleLinkClick("showcase")}>Home</li></Link>
+                <Link><li className="hover:bg-fourthColor" onClick={() => handleLinkClick("about")}>About</li></Link>
                 <Link to="/blog"><li className="hover:bg-fourthColor">Blog</li></Link>
             </ul>
 
